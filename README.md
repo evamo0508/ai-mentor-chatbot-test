@@ -60,6 +60,45 @@ npm run build
 
 Before deploying your app, you need to verify the domain by adding it to the [Domain allowlist](https://platform.openai.com/settings/organization/security/domain-allowlist) on your dashboard.
 
+#### Deploy to Vercel
+
+This project is configured to deploy seamlessly to Vercel.
+
+**Option 1: Deploy via Vercel Dashboard**
+
+1. Push your code to GitHub, GitLab, or Bitbucket
+2. Go to [Vercel Dashboard](https://vercel.com/dashboard)
+3. Click "Add New Project"
+4. Import your repository
+5. Configure environment variables:
+   - `OPENAI_API_KEY` — Your OpenAI API key
+   - `NEXT_PUBLIC_CHATKIT_WORKFLOW_ID` — Your ChatKit workflow ID (starts with `wf_`)
+6. Click "Deploy"
+
+**Option 2: Deploy via Vercel CLI**
+
+```bash
+# Install Vercel CLI globally
+npm install -g vercel
+
+# Login to Vercel
+vercel login
+
+# Deploy to production
+vercel --prod
+```
+
+When prompted, add your environment variables:
+- `OPENAI_API_KEY`
+- `NEXT_PUBLIC_CHATKIT_WORKFLOW_ID`
+
+**Important Notes for Vercel Deployment:**
+
+- The app uses Edge Runtime for optimal performance on Vercel
+- Environment variables are securely stored and encrypted
+- After deployment, add your domain to the [OpenAI Domain Allowlist](https://platform.openai.com/settings/organization/security/domain-allowlist)
+- The API route uses Edge Runtime to handle session creation efficiently
+
 ## Customization Tips
 
 - Adjust starter prompts, greeting text, [chatkit theme](https://chatkit.studio/playground), and placeholder copy in [`lib/config.ts`](lib/config.ts).
