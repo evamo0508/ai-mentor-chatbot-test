@@ -15,7 +15,22 @@ export const STARTER_PROMPTS: StartScreenPrompt[] = [
 
 export const PLACEHOLDER_INPUT = "Ask anything...";
 
-export const GREETING = "How can I help you today?";
+export const HEADER_GREETING = [
+  "👋 歡迎來到人生教育部，我是你的 AI 導師。",
+  "",
+  "我的任務是陪你一起探索課本以外對人生最重要的課題：",
+  "💰 財務規劃｜💭 情緒管理｜💪 健康習慣｜💞 愛情與人際經營",
+  "",
+  "我不只是回答問題，更會陪你一起釐清方向、練習思考、找到屬於你的節奏。",
+  "",
+  "那麼，告訴我吧——",
+  "你最近最想改善或學習的是哪一個領域？ 😊"
+].join("\n");
+
+// Keep ChatKit's built-in start screen greeting empty to avoid duplication,
+// since we render our own multi-line header above the widget.
+export const GREETING = "";
+
 
 export const getThemeConfig = (theme: ColorScheme): ThemeOption => ({
   color: {
